@@ -25,8 +25,11 @@ def index(request):
 def new_campaign(request):
     if request.method == 'POST' and request.is_ajax:
         campaign_data = json.loads(request.body.decode('utf-8'))
+        items = campaign_data.pop('checked')
         campaign = Campaign(**campaign_data)
         campaign.save()
+        campaign.items.add(*CatalogItem.objects.filter(
+            catalog_id__in=items))
         return HttpResponse('{"url": "%s"}' % reverse(
             'show_campaign',
             kwargs={'id_': str(campaign.id)}))
