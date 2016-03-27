@@ -9,6 +9,7 @@ from django.shortcuts import render
 from django.views.decorators.csrf import csrf_exempt
 
 from .models import Campaign
+from .models import CatalogItem
 from .models import PlantedObject
 from .models import Planting
 
@@ -74,3 +75,8 @@ def show_planting(request, campaign_id, planting_id):
         'planting': planting,
         'planted_objects': planted_objects,
     })
+
+
+def catalog(request):
+    items = CatalogItem.objects.all()
+    return render(request, 'catalog.json', context={'items': items})

@@ -2,7 +2,10 @@
 
 from django.db import models
 
-# Create your models here.
+
+class CatalogItem(models.Model):
+    image = models.CharField(max_length=250)
+    catalog_id = models.CharField(max_length=250)
 
 
 class Campaign(models.Model):
@@ -11,6 +14,7 @@ class Campaign(models.Model):
     zoom = models.FloatField()
     heading = models.FloatField()
     pitch = models.FloatField()
+    items = models.ManyToManyField(CatalogItem)
 
 
 class Planting(models.Model):

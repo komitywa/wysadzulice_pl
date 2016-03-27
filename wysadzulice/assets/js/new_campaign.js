@@ -21,7 +21,7 @@ const NewCampaignMapsView = View.extend({
 
 
 const CatalogModel = Model.extend({
-  url: '/static/wysadzulice/assets/main/catalog.json',
+  url: '/api/catalog',
 });
 
 
