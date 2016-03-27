@@ -81,5 +81,10 @@ def show_planting(request, campaign_id, planting_id):
 
 
 def catalog(request):
-    items = CatalogItem.objects.all()
+    items = CatalogItem.objects.order_by('id')
     return render(request, 'catalog.json', context={'items': items})
+
+
+def manifesto(request, id_):
+    items = Campaign.objects.get(id=id_).items.order_by('id')
+    return render(request, 'manifesto.json', context={'items': items})
