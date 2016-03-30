@@ -7,15 +7,16 @@ from django.db import migrations, models
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('wysadzulice', '0002_auto_20160213_1645'),
+        ('wysadzulice', '0003_mail'),
     ]
 
     operations = [
         migrations.CreateModel(
             name='CatalogItem',
             fields=[
-                ('id', models.AutoField(primary_key=True, auto_created=True, serialize=False, verbose_name='ID')),
+                ('id', models.AutoField(verbose_name='ID', auto_created=True, primary_key=True, serialize=False)),
                 ('image', models.CharField(max_length=250)),
+                ('catalog_id', models.CharField(max_length=250)),
             ],
         ),
         migrations.AddField(

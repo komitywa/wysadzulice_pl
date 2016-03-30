@@ -5,13 +5,22 @@ import json
 from django.conf import settings
 from django.core.urlresolvers import reverse
 from django.http import HttpResponse
+from django.shortcuts import redirect
 from django.shortcuts import render
 from django.views.decorators.csrf import csrf_exempt
 
-from .models import Campaign
-from .models import CatalogItem
-from .models import PlantedObject
-from .models import Planting
+from wysadzulice.models import Campaign
+from wysadzulice.models import CatalogItem
+from wysadzulice.models import Mail
+from wysadzulice.models import PlantedObject
+from wysadzulice.models import Planting
+
+
+def mailing(request):
+    if request.method == 'POST':
+        Mail(email=request.POST['email']).save()
+        return redirect('mailing')
+    return render(request, 'mailing.html')
 
 
 def index(request):

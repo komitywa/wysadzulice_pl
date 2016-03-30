@@ -3,9 +3,19 @@
 from django.db import models
 
 
+class Mail(models.Model):
+    email = models.EmailField()
+
+    def __str__(self):
+        return self.email
+
+
 class CatalogItem(models.Model):
     image = models.CharField(max_length=250)
     catalog_id = models.CharField(max_length=250)
+
+    def __str__(self):
+        return self.catalog_id
 
 
 class Campaign(models.Model):

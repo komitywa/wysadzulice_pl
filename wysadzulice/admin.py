@@ -1,3 +1,9 @@
+# -*- coding: utf-8 -*-
+
 from django.contrib import admin
 
-# Register your models here.
+from wysadzulice import models
+
+
+admin.site.register(models.CatalogItem)
+admin.site.register(models.Mail)

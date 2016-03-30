@@ -13,14 +13,15 @@ def insert_catalog_items(apps, schema_editor):
                              'assets', 'catalog')
     for item in os.listdir(directory):
         CatalogItem(
-            image='/static/wysadzulice/assets/main/catalog/{}'.format(item)
+            image='/static/wysadzulice/assets/main/catalog/{}'.format(item),
+            catalog_id=os.path.splitext(os.path.basename(item))[0],
             ).save()
 
 
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('wysadzulice', '0003_auto_20160327_1941'),
+        ('wysadzulice', '0004_auto_20160330_2048'),
     ]
 
     operations = [
