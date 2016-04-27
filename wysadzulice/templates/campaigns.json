@@ -1,0 +1,9 @@
+[
+  {% for i in items %}
+    {
+      "id": "{{i.id}}",
+      "lat": "{{ i.lat }}",
+      "lng": "{{ i.lng }}"
+    }{% if not forloop.last %},{% endif %}
+  {% endfor %}
+]
