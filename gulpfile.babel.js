@@ -113,3 +113,10 @@ gulp.task('assets', ['assets:main', 'assets:vendor']);
 /* Building all frontend assets */
 gulp.task('build', ['assets', 'css', 'fonts', 'js']);
 /* End of building all frontend assets */
+
+gulp.task('watch', function(){
+  gulp.watch('./wysadzulice/assets/assets/catalog/*.png', ['assets']);
+  gulp.watch('./wysadzulice/assets/js/**/*.js', ['js']);
+  gulp.watch('./wysadzulice/assets/main.js', ['js']);
+  gulp.watch('./wysadzulice/assets/styles/**/*.scss', ['css:main']);
+});
