@@ -114,9 +114,11 @@ gulp.task('assets', ['assets:main', 'assets:vendor']);
 gulp.task('build', ['assets', 'css', 'fonts', 'js']);
 /* End of building all frontend assets */
 
+/* Watcher */
 gulp.task('watch', function(){
-  gulp.watch('./wysadzulice/assets/assets/catalog/*.png', ['assets']);
-  gulp.watch('./wysadzulice/assets/js/**/*.js', ['js']);
+  gulp.watch('./wysadzulice/assets/assets/catalog/*.*', ['assets']);
+  gulp.watch('./wysadzulice/assets/js/**/*.*', ['js']);
   gulp.watch('./wysadzulice/assets/main.js', ['js']);
-  gulp.watch('./wysadzulice/assets/styles/**/*.scss', ['css:main']);
+  gulp.watch('./wysadzulice/assets/styles/**/*.scss', ['css']);
 });
+/* End of watcher */
