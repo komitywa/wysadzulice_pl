@@ -63,7 +63,7 @@ gulp.task('js', function() {
 
 /* Building CSS */
 gulp.task('css:main', function() {
-  return gulp.src('./wysadzulice/assets/styles/**/*.scss')
+  return gulp.src('./wysadzulice/assets/styles/**/main.scss')
     .pipe(sass())
     .pipe(autoprefixer({browsers: ['last 1 version']}))
     .pipe(concat('main.css'))
