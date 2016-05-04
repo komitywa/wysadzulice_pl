@@ -114,6 +114,7 @@ gulp.task('assets', ['assets:main', 'assets:vendor']);
 gulp.task('build', ['assets', 'css', 'fonts', 'js']);
 /* End of building all frontend assets */
 
+
 /* Watcher */
 gulp.task('watch', function(){
   gulp.watch('./wysadzulice/assets/assets/catalog/*.*', ['assets']);
