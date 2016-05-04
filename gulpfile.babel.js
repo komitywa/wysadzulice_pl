@@ -116,9 +116,9 @@ gulp.task('build', ['assets', 'css', 'fonts', 'js']);
 
 
 /* Watcher */
-gulp.task('watch', function(){
-  gulp.watch('./wysadzulice/assets/assets/catalog/*.*', ['assets']);
-  gulp.watch('./wysadzulice/assets/js/**/*.*', ['js']);
+gulp.task('watch', function() {
+  gulp.watch('./wysadzulice/assets/assets/**/*', ['assets']);
+  gulp.watch('./wysadzulice/assets/js/**/*', ['js']);
   gulp.watch('./wysadzulice/assets/main.js', ['js']);
   gulp.watch('./wysadzulice/assets/styles/**/*.scss', ['css']);
 });
