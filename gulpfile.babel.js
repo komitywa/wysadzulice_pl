@@ -63,7 +63,7 @@ gulp.task('js', function() {
 
 /* Building CSS */
 gulp.task('css:main', function() {
-  return gulp.src('./wysadzulice/assets/styles/**/*.scss')
+  return gulp.src('./wysadzulice/assets/styles/**/main.scss')
     .pipe(sass())
     .pipe(autoprefixer({browsers: ['last 1 version']}))
     .pipe(concat('main.css'))
@@ -114,9 +114,12 @@ gulp.task('assets', ['assets:main', 'assets:vendor']);
 gulp.task('build', ['assets', 'css', 'fonts', 'js']);
 /* End of building all frontend assets */
 
-gulp.task('watch', function(){
-  gulp.watch('./wysadzulice/assets/assets/catalog/*.png', ['assets']);
-  gulp.watch('./wysadzulice/assets/js/**/*.js', ['js']);
+
+/* Watcher */
+gulp.task('watch', function() {
+  gulp.watch('./wysadzulice/assets/assets/**/*', ['assets']);
+  gulp.watch('./wysadzulice/assets/js/**/*', ['js']);
   gulp.watch('./wysadzulice/assets/main.js', ['js']);
-  gulp.watch('./wysadzulice/assets/styles/**/*.scss', ['css:main']);
+  gulp.watch('./wysadzulice/assets/styles/**/*.scss', ['css']);
 });
+/* End of watcher */
