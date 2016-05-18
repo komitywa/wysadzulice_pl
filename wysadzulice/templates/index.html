@@ -1,14 +1,43 @@
+{% load staticfiles %}
+<!doctype html>
+<html>
+<head>
+    <meta charset=utf-8>
+    <meta name=description>
+    <meta name=viewport content="width=device-width, initial-scale=1, minimal-ui">
+    <title>Home page</title>
+    <link rel=stylesheet href="{% static "wysadzulice/styles/vendor.css" %}">
+    <link rel=stylesheet href="{% static "wysadzulice/styles/main.css" %}">
+</head>
+<body>
+<div id="home">
+    <div id="home-banner">
+
+    </div>
+    <div id="home-slider">
+
+    </div>
+</div>
 <ul>
-  <li><a href="{% url 'new_campaign' %}">New campaign</a></li>
+    <li><a href="{% url 'new_campaign' %}">New campaign</a></li>
 </ul>
 
 {% if campaigns %}
-  Campaigns:
-  <ul>
-    {% for c in campaigns %}
-      <li><a href="{% url 'show_campaign' c.pk %}">{{ c.pk }}</a></li>
-    {% endfor %}
-  </ul>
+    Campaigns:
+    <ul>
+        {% for c in campaigns %}
+            <li><a href="{% url 'show_campaign' c.pk %}">{{ c.pk }}</a></li>
+        {% endfor %}
+    </ul>
 {% else %}
-  There are no campaigns yet.
+    There are no campaigns yet.
 {% endif %}
+
+
+<script src="{% static "wysadzulice/js/main.js" %}"></script>
+<script type="text/javascript">
+      new WysadzUlice.HomeView({
+      });
+</script>
+</body>
+</html>

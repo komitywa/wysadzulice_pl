@@ -94,6 +94,11 @@ def catalog(request):
     return render(request, 'catalog.json', context={'items': items})
 
 
+def campaigns(request):
+    items = Campaign.objects.all()
+    return render(request, 'campaigns.json', context={'items': items})
+
+
 def manifesto(request, id_):
     items = Campaign.objects.get(id=id_).items.order_by('id')
     return render(request, 'manifesto.json', context={'items': items})
