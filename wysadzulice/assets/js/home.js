@@ -7,7 +7,6 @@ const BannerView = View.extend({
     this.parent = options.parent;
     this.setElement(jquery('#home-banner'));
     const markers = this.parent.collection.toApi();
-
     const apiKey = 'https://maps.googleapis.com/maps/api/staticmap?size=400x300&key=AIzaSyCRnnZblqETt7ivbluhDXDuF3B0HrbdVnI' + markers;
     this.$el.html(`<div id="banner-container"><img src="${apiKey}"></div>`);
   },
