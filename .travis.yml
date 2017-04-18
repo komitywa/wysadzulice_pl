@@ -3,9 +3,11 @@ python:
   - "3.4"
 install:
   - "pip install -r requirements.txt"
+  - "npm install"
 script:
   - "cp wysadzulice_pl/secrets.py.example wysadzulice_pl/secrets.py"
   - "pep8 --exclude='wysadzulice/migrations/*' ."
   - "coverage run --source=wysadzulice manage.py test"
+  - "./node_modules/gulp/bin/gulp.js build"
 after_success:
   - "codecov"
